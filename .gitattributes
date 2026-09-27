@@ -1,0 +1,2 @@
+# Keep LF in the repo and working tree (matches Prettier's default endOfLine)
+* text=auto eol=lf

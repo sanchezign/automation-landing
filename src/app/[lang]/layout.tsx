@@ -1,0 +1,67 @@
+import type { Metadata } from "next"
+import { Geist, Geist_Mono } from "next/font/google"
+import { notFound } from "next/navigation"
+import { SiteFooter } from "@/components/layout/site-footer"
+import { SiteHeader } from "@/components/layout/site-header"
+import { ThemeProvider } from "@/components/theme-provider"
+import { TooltipProvider } from "@/components/ui/tooltip"
+import { hasLocale, locales } from "@/i18n/config"
+import { getDictionary } from "@/i18n/get-dictionary"
+import "../globals.css"
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+})
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+})
+
+type Props = Readonly<{
+  children: React.ReactNode
+  params: Promise<{ lang: string }>
+}>
+
+// Only /en and /es exist; everything is prerendered at build time.
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return locales.map((lang) => ({ lang }))
+}
+
+// Basic localized metadata — full SEO (hreflang, OG, JSON-LD) arrives in milestone 5.
+export async function generateMetadata({ params }: Omit<Props, "children">): Promise<Metadata> {
+  const { lang } = await params
+  if (!hasLocale(lang)) return {}
+  const { meta } = getDictionary(lang)
+  return { title: meta.title, description: meta.description }
+}
+
+export default async function RootLayout({ children, params }: Props) {
+  const { lang } = await params
+  if (!hasLocale(lang)) notFound()
+  const dict = getDictionary(lang)
+
+  return (
+    <html lang={lang} suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TooltipProvider>
+            <div className="flex min-h-svh flex-col">
+              <SiteHeader lang={lang} dict={dict} />
+              <main className="flex-1">{children}</main>
+              <SiteFooter dict={dict} />
+            </div>
+          </TooltipProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  )
+}
