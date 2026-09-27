@@ -30,7 +30,7 @@ none
 4. Conversion (WhatsApp wa.me + mailto with prefilled messages, floating WhatsApp button) — done
 5. SEO & performance (localized metadata, hreflang, OG image, sitemap, robots, JSON-LD, Lighthouse > 90) — done
    (Lighthouse 2026-09-27 on /en: mobile 97/100/100/100, desktop 100/100/100/100)
-6. CI (GitHub Actions: lint + typecheck + build) + Vercel deploy — CI done; deploy pending (user: GitHub repo + Vercel project)
+6. CI (GitHub Actions: lint + typecheck + build) + Vercel deploy — done
 7. Real case study (replace illustrative case with the user's real project)
 
 ## Stack deviations
@@ -38,6 +38,18 @@ none
 - 2026-09-27: No backend (NestJS/Mongo not used). A static landing with WhatsApp and
   mailto links needs no server. Not an optional-module addition, so no ADR.
 - 2026-09-27: Next.js pinned to 15.5.x although 16 is `latest`, to follow the default stack.
+
+## Deployment
+
+- GitHub: https://github.com/sanchezign/automation-landing (private). CI green on main.
+- Vercel project `automation-landing` (team sanchezigns-projects, Hobby).
+  Production URL: https://automation-landing-two.vercel.app (`automation-landing.vercel.app`
+  was taken). NEXT_PUBLIC_SITE_URL must match it (or the custom domain later).
+- Vercel Authentication = "All Deployments": the site is PRIVATE until the user decides to
+  publish (Settings → Deployment Protection → disable). The site itself has no login.
+- The Vercel MCP connector is read-only for this account (403 on create_project): project
+  settings/env/protection changes are done by the user in the dashboard.
+- Pushes to main auto-deploy to production.
 
 ## Architecture decisions
 
@@ -84,8 +96,9 @@ none
 
 ## Current phase
 
-Milestone 6 in progress: CI workflow ready; waiting for the user to create the private GitHub
-repo and import it in Vercel (steps in README). Then: first deploy check → Milestone 7.
+Milestone 6 done → next: Milestone 7 (real case study) when the user shares the project.
+Before going public: review invented copy (24h reply, tech list, case study), remove Vercel
+protection, and (optionally) connect the custom domain.
 
 ## Known issues (out of scope)
 
