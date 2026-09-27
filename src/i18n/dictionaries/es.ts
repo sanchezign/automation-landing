@@ -191,6 +191,8 @@ export const es: Dictionary = {
     quoteLabel: "A cotizar",
     cta: "Pedir presupuesto",
     recommended: "Recomendado para empezar",
+    whatsappMessage:
+      '¡Hola Ignacio! Me interesa el paquete "{package}". ¿Me podrías pasar un presupuesto?',
     items: [
       {
         id: "audit",
@@ -292,6 +294,9 @@ export const es: Dictionary = {
     whatsapp: "Escríbeme por WhatsApp",
     email: "Enviar un email",
     responseTime: "Suelo responder en menos de 24 horas.",
+    whatsappMessage: "¡Hola Ignacio! Me gustaría automatizar un proceso en mi empresa.",
+    emailSubject: "Consulta por proyecto de automatización",
+    floatingLabel: "Escribir por WhatsApp",
   },
   footer: {
     tagline: "Agentes de IA, automatización de procesos e integraciones.",

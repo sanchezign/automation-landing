@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card"
 import { sectionIds } from "@/config/site"
 import type { Dictionary, PackageId } from "@/i18n/dictionaries/en"
+import { whatsappUrl } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 import { Section, SectionHeading } from "./section"
 
@@ -48,9 +49,14 @@ export function Packages({ copy }: { copy: Dictionary["packages"] }) {
                 </ul>
               </CardContent>
               <CardFooter>
-                {/* Milestone 4 turns this into a WhatsApp link prefilled with the package name */}
                 <Button asChild className="w-full" variant={recommended ? "default" : "outline"}>
-                  <a href={`#${sectionIds.contact}`}>{copy.cta}</a>
+                  <a
+                    href={whatsappUrl(copy.whatsappMessage.replace("{package}", pkg.name))}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {copy.cta}
+                  </a>
                 </Button>
               </CardFooter>
             </Card>

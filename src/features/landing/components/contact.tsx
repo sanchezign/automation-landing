@@ -17,14 +17,13 @@ export function Contact({ copy }: { copy: Dictionary["contact"] }) {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">{copy.subtitle}</p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            {/* Milestone 4 adds prefilled messages per language/package */}
             <Button asChild size="lg">
-              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+              <a href={whatsappUrl(copy.whatsappMessage)} target="_blank" rel="noopener noreferrer">
                 <MessageCircle /> {copy.whatsapp}
               </a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href={mailtoUrl()}>
+              <a href={mailtoUrl(copy.emailSubject)}>
                 <Mail /> {copy.email}
               </a>
             </Button>

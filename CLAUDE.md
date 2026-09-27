@@ -27,7 +27,7 @@ none
 1. Scaffold + config (Next.js 15, Tailwind 4, shadcn, ESLint/Prettier, env) — done
 2. Layout + i18n (/en primary, /es) + theme (palette, dark mode) — done
 3. Content sections (hero chat demo, services, process, case study, tech, packages, about, FAQ, contact) — done
-4. Conversion (WhatsApp wa.me + mailto with prefilled messages, floating WhatsApp button)
+4. Conversion (WhatsApp wa.me + mailto with prefilled messages, floating WhatsApp button) — done
 5. SEO & performance (localized metadata, hreflang, OG image, sitemap, robots, JSON-LD, Lighthouse > 90)
 6. CI (GitHub Actions: lint + typecheck + build) + Vercel deploy
 7. Real case study (replace illustrative case with the user's real project)
@@ -59,6 +59,9 @@ none
 - Hero chat demo is a client component; respects prefers-reduced-motion (static).
 - Don't run `pnpm build` while `pnpm dev` is running: both write to `.next/` and the dev
   server starts failing with ENOENT manifest errors (restart dev to recover).
+- Prefilled contact copy lives in the dictionaries (`contact.whatsappMessage`, `emailSubject`,
+  `packages.whatsappMessage` with a `{package}` placeholder). Package CTAs open WhatsApp directly.
+- Floating WhatsApp button only below `lg` (desktop has the header CTA).
 - `next build` without Turbopack for production stability; `next dev --turbopack` in dev.
 
 ## Content rules
@@ -71,7 +74,7 @@ none
 
 ## Current phase
 
-Milestone 3 done → next: Milestone 4 (conversion: prefilled WhatsApp/mailto, floating button).
+Milestone 4 done → next: Milestone 5 (SEO & performance).
 
 ## Known issues (out of scope)
 

@@ -23,7 +23,7 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
           <ul className="space-y-2">
             <li>
               <a
-                href={whatsappUrl()}
+                href={whatsappUrl(dict.contact.whatsappMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={linkClass}
@@ -32,7 +32,7 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
               </a>
             </li>
             <li>
-              <a href={mailtoUrl()} className={linkClass}>
+              <a href={mailtoUrl(dict.contact.emailSubject)} className={linkClass}>
                 <Mail className="size-4" /> {env.NEXT_PUBLIC_CONTACT_EMAIL}
               </a>
             </li>

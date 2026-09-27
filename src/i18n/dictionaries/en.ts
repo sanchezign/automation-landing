@@ -189,6 +189,9 @@ export const en = {
     quoteLabel: "Custom quote",
     cta: "Request a quote",
     recommended: "Recommended start",
+    // {package} is replaced with the package name
+    whatsappMessage:
+      'Hi Ignacio! I\'m interested in the "{package}" package. Could you send me a quote?',
     items: [
       {
         id: "audit",
@@ -286,6 +289,9 @@ export const en = {
     whatsapp: "Message me on WhatsApp",
     email: "Send an email",
     responseTime: "I usually reply within 24 hours.",
+    whatsappMessage: "Hi Ignacio! I'd like to automate a process in my business.",
+    emailSubject: "Automation project inquiry",
+    floatingLabel: "Chat on WhatsApp",
   },
   footer: {
     tagline: "AI agents, workflow automation and integrations.",
