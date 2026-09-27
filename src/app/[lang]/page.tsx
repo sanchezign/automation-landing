@@ -1,26 +1,34 @@
 import { notFound } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { sectionIds } from "@/config/site"
+import { About } from "@/features/landing/components/about"
+import { CaseStudy } from "@/features/landing/components/case-study"
+import { Contact } from "@/features/landing/components/contact"
+import { Faq } from "@/features/landing/components/faq"
+import { Hero } from "@/features/landing/components/hero"
+import { Packages } from "@/features/landing/components/packages"
+import { Process } from "@/features/landing/components/process"
+import { Services } from "@/features/landing/components/services"
+import { TechStack } from "@/features/landing/components/tech-stack"
 import { hasLocale } from "@/i18n/config"
 import { getDictionary } from "@/i18n/get-dictionary"
 
 type Props = { params: Promise<{ lang: string }> }
 
-// Temporary hero — the full landing sections are built in milestone 3.
 export default async function HomePage({ params }: Props) {
   const { lang } = await params
   if (!hasLocale(lang)) notFound()
   const dict = getDictionary(lang)
 
   return (
-    <section className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-24 sm:px-6 md:py-32">
-      <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-balance sm:text-5xl md:text-6xl">
-        <span className="text-gradient">{dict.hero.title}</span>
-      </h1>
-      <p className="max-w-2xl text-lg text-muted-foreground">{dict.hero.subtitle}</p>
-      <Button asChild size="lg">
-        <a href={`#${sectionIds.contact}`}>{dict.nav.cta}</a>
-      </Button>
-    </section>
+    <>
+      <Hero dict={dict} />
+      <Services copy={dict.services} />
+      <Process copy={dict.process} />
+      <CaseStudy copy={dict.caseStudy} />
+      <TechStack copy={dict.tech} />
+      <Packages copy={dict.packages} />
+      <About copy={dict.about} />
+      <Faq copy={dict.faq} />
+      <Contact copy={dict.contact} />
+    </>
   )
 }

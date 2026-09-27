@@ -26,7 +26,7 @@ none
 0. Cleanup of the old Vite attempt — done
 1. Scaffold + config (Next.js 15, Tailwind 4, shadcn, ESLint/Prettier, env) — done
 2. Layout + i18n (/en primary, /es) + theme (palette, dark mode) — done
-3. Content sections (hero chat demo, services, process, case study, tech, packages, about, FAQ, contact)
+3. Content sections (hero chat demo, services, process, case study, tech, packages, about, FAQ, contact) — done
 4. Conversion (WhatsApp wa.me + mailto with prefilled messages, floating WhatsApp button)
 5. SEO & performance (localized metadata, hreflang, OG image, sitemap, robots, JSON-LD, Lighthouse > 90)
 6. CI (GitHub Actions: lint + typecheck + build) + Vercel deploy
@@ -53,6 +53,12 @@ none
   `--brand-2` (cyan) + `text-gradient` utility in globals.css.
 - lucide-react 1.x has no brand icons (GitHub/LinkedIn): use text labels + generic icons.
 - Unknown paths under /en|/es hit `app/[lang]/[...rest]` → localized not-found.
+- Landing sections live in `src/features/landing/components/`; non-translatable data (icons,
+  tool names) in `src/features/landing/data.ts`; all copy in the dictionaries.
+- Profile photo = GitHub avatar via next/image (`images.remotePatterns` in next.config.ts).
+- Hero chat demo is a client component; respects prefers-reduced-motion (static).
+- Don't run `pnpm build` while `pnpm dev` is running: both write to `.next/` and the dev
+  server starts failing with ENOENT manifest errors (restart dev to recover).
 - `next build` without Turbopack for production stability; `next dev --turbopack` in dev.
 
 ## Content rules
@@ -65,7 +71,7 @@ none
 
 ## Current phase
 
-Milestone 2 done → next: Milestone 3 (content sections).
+Milestone 3 done → next: Milestone 4 (conversion: prefilled WhatsApp/mailto, floating button).
 
 ## Known issues (out of scope)
 

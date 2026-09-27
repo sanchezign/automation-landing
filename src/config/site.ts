@@ -3,6 +3,7 @@ export const siteConfig = {
   name: "Ignacio Sánchez",
   shortName: "IS",
   location: "Montevideo, Uruguay",
+  avatarUrl: "https://avatars.githubusercontent.com/u/242884727?v=4",
   links: {
     github: "https://github.com/sanchezign",
     linkedin: "https://www.linkedin.com/in/ignacio-s%C3%A1nchez-greppi-30128b3a6/",
