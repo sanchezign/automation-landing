@@ -30,7 +30,7 @@ none
 4. Conversion (WhatsApp wa.me + mailto with prefilled messages, floating WhatsApp button) — done
 5. SEO & performance (localized metadata, hreflang, OG image, sitemap, robots, JSON-LD, Lighthouse > 90) — done
    (Lighthouse 2026-09-27 on /en: mobile 97/100/100/100, desktop 100/100/100/100)
-6. CI (GitHub Actions: lint + typecheck + build) + Vercel deploy
+6. CI (GitHub Actions: lint + typecheck + build) + Vercel deploy — CI done; deploy pending (user: GitHub repo + Vercel project)
 7. Real case study (replace illustrative case with the user's real project)
 
 ## Stack deviations
@@ -69,6 +69,9 @@ none
   to it automatically (Next emits twitter:image). Favicon/apple icon generated from code
   (`app/icon.tsx`, `app/apple-icon.tsx`); middleware matcher excludes `icon|apple-icon`.
 - JSON-LD (Person + ProfessionalService) in `features/landing/components/json-ld.tsx`.
+- pnpm pinned via `packageManager` (pnpm 12 writes it into the lockfile); Vercel needs
+  `ENABLE_EXPERIMENTAL_COREPACK=1` to use it. Node pinned with `engines.node: 24.x`.
+- CI uses placeholder NEXT_PUBLIC_* values; real values only in Vercel / .env.local.
 - `next build` without Turbopack for production stability; `next dev --turbopack` in dev.
 
 ## Content rules
@@ -81,7 +84,8 @@ none
 
 ## Current phase
 
-Milestone 5 done → next: Milestone 6 (CI + Vercel deploy).
+Milestone 6 in progress: CI workflow ready; waiting for the user to create the private GitHub
+repo and import it in Vercel (steps in README). Then: first deploy check → Milestone 7.
 
 ## Known issues (out of scope)
 
