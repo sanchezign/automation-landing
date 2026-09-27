@@ -293,7 +293,7 @@ export const es: Dictionary = {
       "Cuéntame qué le lleva más tiempo a tu equipo. Te respondo con ideas y próximos pasos, sin compromiso.",
     whatsapp: "Escríbeme por WhatsApp",
     email: "Enviar un email",
-    responseTime: "Suelo responder en menos de 24 horas.",
+    responseTime: "Te respondo a la brevedad.",
     whatsappMessage: "¡Hola Ignacio! Me gustaría automatizar un proceso en mi empresa.",
     emailSubject: "Consulta por proyecto de automatización",
     floatingLabel: "Escribir por WhatsApp",

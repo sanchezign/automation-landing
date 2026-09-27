@@ -288,7 +288,7 @@ export const en = {
       "Tell me what takes your team the most time. I'll reply with ideas and next steps — no commitment.",
     whatsapp: "Message me on WhatsApp",
     email: "Send an email",
-    responseTime: "I usually reply within 24 hours.",
+    responseTime: "I'll get back to you as soon as possible.",
     whatsappMessage: "Hi Ignacio! I'd like to automate a process in my business.",
     emailSubject: "Automation project inquiry",
     floatingLabel: "Chat on WhatsApp",

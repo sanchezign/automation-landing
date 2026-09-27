@@ -97,8 +97,10 @@ none
 ## Current phase
 
 Milestone 6 done → next: Milestone 7 (real case study) when the user shares the project.
-Before going public: review invented copy (24h reply, tech list, case study), remove Vercel
-protection, and (optionally) connect the custom domain.
+Copy review 2026-09-27: reply-time promise softened ("as soon as possible"); tech list,
+services, photo and neutral Spanish kept for now. Deferred: packages/pricing strategy (market
+analysis later), tech list additions after the real project, visual polish.
+Before going public: remove Vercel protection and (optionally) connect the custom domain.
 
 ## Known issues (out of scope)
 
