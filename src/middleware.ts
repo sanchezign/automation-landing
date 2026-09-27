@@ -20,6 +20,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Skip Next internals, API routes and any file with an extension (favicon, robots.txt, images…)
-  matcher: ["/((?!_next|api|.*\\..*).*)"],
+  // Skip Next internals, API routes, generated icons and any file with an extension
+  // (favicon, robots.txt, sitemap.xml, images…)
+  matcher: ["/((?!_next|api|icon|apple-icon|.*\\..*).*)"],
 }

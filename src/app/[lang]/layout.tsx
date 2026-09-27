@@ -6,8 +6,10 @@ import { SiteFooter } from "@/components/layout/site-footer"
 import { SiteHeader } from "@/components/layout/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import { siteConfig } from "@/config/site"
 import { hasLocale, locales } from "@/i18n/config"
 import { getDictionary } from "@/i18n/get-dictionary"
+import { languageAlternates, ogLocales, siteUrl } from "@/lib/seo"
 import "../globals.css"
 
 const geistSans = Geist({
@@ -32,12 +34,38 @@ export function generateStaticParams() {
   return locales.map((lang) => ({ lang }))
 }
 
-// Basic localized metadata — full SEO (hreflang, OG, JSON-LD) arrives in milestone 5.
 export async function generateMetadata({ params }: Omit<Props, "children">): Promise<Metadata> {
   const { lang } = await params
   if (!hasLocale(lang)) return {}
   const { meta } = getDictionary(lang)
-  return { title: meta.title, description: meta.description }
+
+  return {
+    metadataBase: siteUrl,
+    title: meta.title,
+    description: meta.description,
+    authors: [{ name: siteConfig.name, url: siteConfig.links.github }],
+    creator: siteConfig.name,
+    alternates: {
+      canonical: `/${lang}`,
+      languages: languageAlternates(),
+    },
+    // og:image / twitter:image come from ./opengraph-image.tsx
+    openGraph: {
+      type: "website",
+      url: `/${lang}`,
+      siteName: siteConfig.name,
+      title: meta.title,
+      description: meta.description,
+      locale: ogLocales[lang],
+      alternateLocale: locales.filter((l) => l !== lang).map((l) => ogLocales[l]),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+    },
+    robots: { index: true, follow: true },
+  }
 }
 
 export default async function RootLayout({ children, params }: Props) {

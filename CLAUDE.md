@@ -28,7 +28,8 @@ none
 2. Layout + i18n (/en primary, /es) + theme (palette, dark mode) — done
 3. Content sections (hero chat demo, services, process, case study, tech, packages, about, FAQ, contact) — done
 4. Conversion (WhatsApp wa.me + mailto with prefilled messages, floating WhatsApp button) — done
-5. SEO & performance (localized metadata, hreflang, OG image, sitemap, robots, JSON-LD, Lighthouse > 90)
+5. SEO & performance (localized metadata, hreflang, OG image, sitemap, robots, JSON-LD, Lighthouse > 90) — done
+   (Lighthouse 2026-09-27 on /en: mobile 97/100/100/100, desktop 100/100/100/100)
 6. CI (GitHub Actions: lint + typecheck + build) + Vercel deploy
 7. Real case study (replace illustrative case with the user's real project)
 
@@ -62,6 +63,12 @@ none
 - Prefilled contact copy lives in the dictionaries (`contact.whatsappMessage`, `emailSubject`,
   `packages.whatsappMessage` with a `{package}` placeholder). Package CTAs open WhatsApp directly.
 - Floating WhatsApp button only below `lg` (desktop has the header CTA).
+- SEO helpers in `src/lib/seo.ts` (metadataBase from NEXT_PUBLIC_SITE_URL, hreflang map).
+  All absolute URLs (canonical, OG, sitemap, robots, JSON-LD) depend on that env var.
+- OG image generated per locale at build time (`app/[lang]/opengraph-image.tsx`); X falls back
+  to it automatically (Next emits twitter:image). Favicon/apple icon generated from code
+  (`app/icon.tsx`, `app/apple-icon.tsx`); middleware matcher excludes `icon|apple-icon`.
+- JSON-LD (Person + ProfessionalService) in `features/landing/components/json-ld.tsx`.
 - `next build` without Turbopack for production stability; `next dev --turbopack` in dev.
 
 ## Content rules
@@ -74,7 +81,7 @@ none
 
 ## Current phase
 
-Milestone 4 done → next: Milestone 5 (SEO & performance).
+Milestone 5 done → next: Milestone 6 (CI + Vercel deploy).
 
 ## Known issues (out of scope)
 
