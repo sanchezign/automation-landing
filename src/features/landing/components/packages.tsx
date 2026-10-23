@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card"
 import { sectionIds } from "@/config/site"
 import type { Dictionary, PackageId } from "@/i18n/dictionaries/en"
-import { whatsappUrl } from "@/lib/contact"
+import { mailtoUrl } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 import { Section, SectionHeading } from "./section"
 
@@ -50,11 +50,7 @@ export function Packages({ copy }: { copy: Dictionary["packages"] }) {
               </CardContent>
               <CardFooter>
                 <Button asChild className="w-full" variant={recommended ? "default" : "outline"}>
-                  <a
-                    href={whatsappUrl(copy.whatsappMessage.replace("{package}", pkg.name))}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={mailtoUrl(copy.emailSubject.replace("{package}", pkg.name))}>
                     {copy.cta}
                   </a>
                 </Button>

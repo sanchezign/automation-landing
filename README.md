@@ -22,11 +22,10 @@ The app validates env vars on startup (`src/env.ts`) and fails fast if any is mi
 
 ## Environment variables
 
-| Var                           | Description                                                        |
-| ----------------------------- | ------------------------------------------------------------------ |
-| `NEXT_PUBLIC_SITE_URL`        | Canonical site URL (metadata, sitemap, OG)                         |
-| `NEXT_PUBLIC_CONTACT_EMAIL`   | Email used in `mailto:` links                                      |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp number for `wa.me` links — digits only, with country code |
+| Var                         | Description                                |
+| --------------------------- | ------------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL`      | Canonical site URL (metadata, sitemap, OG) |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Email used in `mailto:` links              |
 
 ## Scripts
 
@@ -53,7 +52,6 @@ live in Vercel and `.env.local`).
    - `NEXT_PUBLIC_SITE_URL` — the production URL, e.g. `https://your-project.vercel.app`
      (later: your custom domain)
    - `NEXT_PUBLIC_CONTACT_EMAIL`
-   - `NEXT_PUBLIC_WHATSAPP_NUMBER`
    - `ENABLE_EXPERIMENTAL_COREPACK` = `1` — makes Vercel use the pnpm version pinned in
      `package.json` (`packageManager`), which the lockfile requires.
 4. Deploy. Node.js version comes from `engines.node` (24.x).

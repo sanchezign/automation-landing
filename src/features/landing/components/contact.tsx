@@ -1,8 +1,8 @@
-import { Mail, MessageCircle } from "lucide-react"
+import { Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { sectionIds } from "@/config/site"
 import type { Dictionary } from "@/i18n/dictionaries/en"
-import { mailtoUrl, whatsappUrl } from "@/lib/contact"
+import { mailtoUrl } from "@/lib/contact"
 
 export function Contact({ copy }: { copy: Dictionary["contact"] }) {
   return (
@@ -18,11 +18,6 @@ export function Contact({ copy }: { copy: Dictionary["contact"] }) {
           <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">{copy.subtitle}</p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild size="lg">
-              <a href={whatsappUrl(copy.whatsappMessage)} target="_blank" rel="noopener noreferrer">
-                <MessageCircle /> {copy.whatsapp}
-              </a>
-            </Button>
-            <Button asChild size="lg" variant="outline">
               <a href={mailtoUrl(copy.emailSubject)}>
                 <Mail /> {copy.email}
               </a>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { notFound } from "next/navigation"
-import { FloatingWhatsapp } from "@/components/layout/floating-whatsapp"
 import { SiteFooter } from "@/components/layout/site-footer"
 import { SiteHeader } from "@/components/layout/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -88,10 +87,6 @@ export default async function RootLayout({ children, params }: Props) {
               <main className="flex-1">{children}</main>
               <SiteFooter dict={dict} />
             </div>
-            <FloatingWhatsapp
-              label={dict.contact.floatingLabel}
-              message={dict.contact.whatsappMessage}
-            />
           </TooltipProvider>
         </ThemeProvider>
       </body>
