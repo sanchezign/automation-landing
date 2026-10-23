@@ -191,8 +191,7 @@ export const es: Dictionary = {
     quoteLabel: "A cotizar",
     cta: "Pedir presupuesto",
     recommended: "Recomendado para empezar",
-    whatsappMessage:
-      '¡Hola Ignacio! Me interesa el paquete "{package}". ¿Me podrías pasar un presupuesto?',
+    emailSubject: 'Pedido de presupuesto: paquete "{package}"',
     items: [
       {
         id: "audit",
@@ -282,7 +281,7 @@ export const es: Dictionary = {
       {
         question: "¿Cómo empezamos?",
         answer:
-          "Escríbeme por WhatsApp o email con una breve descripción de lo que quieres automatizar. Agendamos una llamada y te envío una propuesta.",
+          "Escríbeme por email con una breve descripción de lo que quieres automatizar. Agendamos una llamada y te envío una propuesta.",
       },
     ],
   },
@@ -291,12 +290,9 @@ export const es: Dictionary = {
     title: "Automaticemos tu próximo proceso",
     subtitle:
       "Cuéntame qué le lleva más tiempo a tu equipo. Te respondo con ideas y próximos pasos, sin compromiso.",
-    whatsapp: "Escríbeme por WhatsApp",
     email: "Enviar un email",
     responseTime: "Te respondo a la brevedad.",
-    whatsappMessage: "¡Hola Ignacio! Me gustaría automatizar un proceso en mi empresa.",
     emailSubject: "Consulta por proyecto de automatización",
-    floatingLabel: "Escribir por WhatsApp",
   },
   footer: {
     tagline: "Agentes de IA, automatización de procesos e integraciones.",

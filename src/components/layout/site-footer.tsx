@@ -1,8 +1,8 @@
-import { ExternalLink, Mail, MessageCircle } from "lucide-react"
+import { ExternalLink, Mail } from "lucide-react"
 import { env } from "@/env"
 import { siteConfig } from "@/config/site"
 import type { Dictionary } from "@/i18n/dictionaries/en"
-import { mailtoUrl, whatsappUrl } from "@/lib/contact"
+import { mailtoUrl } from "@/lib/contact"
 
 export function SiteFooter({ dict }: { dict: Dictionary }) {
   const year = new Date().getFullYear()
@@ -21,16 +21,6 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
         <div className="space-y-3">
           <p className="text-sm font-semibold">{dict.footer.contact}</p>
           <ul className="space-y-2">
-            <li>
-              <a
-                href={whatsappUrl(dict.contact.whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClass}
-              >
-                <MessageCircle className="size-4" /> WhatsApp
-              </a>
-            </li>
             <li>
               <a href={mailtoUrl(dict.contact.emailSubject)} className={linkClass}>
                 <Mail className="size-4" /> {env.NEXT_PUBLIC_CONTACT_EMAIL}

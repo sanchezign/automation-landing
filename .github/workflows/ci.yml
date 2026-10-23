@@ -17,7 +17,6 @@ jobs:
       # Public, non-secret placeholders so env validation passes at build time.
       NEXT_PUBLIC_SITE_URL: https://example.com
       NEXT_PUBLIC_CONTACT_EMAIL: ci@example.com
-      NEXT_PUBLIC_WHATSAPP_NUMBER: "59800000000"
       NEXT_TELEMETRY_DISABLED: 1
     steps:
       - uses: actions/checkout@v7

@@ -190,8 +190,7 @@ export const en = {
     cta: "Request a quote",
     recommended: "Recommended start",
     // {package} is replaced with the package name
-    whatsappMessage:
-      'Hi Ignacio! I\'m interested in the "{package}" package. Could you send me a quote?',
+    emailSubject: 'Quote request: "{package}" package',
     items: [
       {
         id: "audit",
@@ -277,7 +276,7 @@ export const en = {
       {
         question: "How do we start?",
         answer:
-          "Send me a message on WhatsApp or by email with a short description of what you want to automate. We schedule a call and I send you a proposal.",
+          "Send me an email with a short description of what you want to automate. We schedule a call and I send you a proposal.",
       },
     ],
   },
@@ -286,12 +285,9 @@ export const en = {
     title: "Let's automate your next process",
     subtitle:
       "Tell me what takes your team the most time. I'll reply with ideas and next steps — no commitment.",
-    whatsapp: "Message me on WhatsApp",
     email: "Send an email",
     responseTime: "I'll get back to you as soon as possible.",
-    whatsappMessage: "Hi Ignacio! I'd like to automate a process in my business.",
     emailSubject: "Automation project inquiry",
-    floatingLabel: "Chat on WhatsApp",
   },
   footer: {
     tagline: "AI agents, workflow automation and integrations.",
